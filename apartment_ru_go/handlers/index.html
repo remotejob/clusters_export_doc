@@ -71,12 +71,14 @@
 		
 		<div id="short-nav">
 			<dl>
-			<dd><code>import "github.com/remotejob/docker-goreverseproxy/handlers"</code></dd>
+			<dd><code>import "github.com/remotejob/apartment_ru_go/handlers"</code></dd>
 			</dl>
 			<dl>
 			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
 			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
 			
+			
+				<dd><a href="#pkg-subdirectories">Subdirectories</a></dd>
 			
 			</dl>
 		</div>
@@ -109,8 +111,34 @@
 				<dd><a href="#CheckServeSitemap">func CheckServeSitemap(w http.ResponseWriter, r *http.Request)</a></dd>
 			
 				
-				<dd><a href="#CreateArticelePage">func CreateArticelePage(w http.ResponseWriter, r *http.Request)</a></dd>
+				<dd><a href="#Elaborate">func Elaborate(c web.C, w http.ResponseWriter, r *http.Request)</a></dd>
 			
+			
+				
+				<dd><a href="#Entrystartpar">type Entrystartpar</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewEntrystartpar">func NewEntrystartpar() *Entrystartpar</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Entrystartpar.StaticHandler">func (startpar *Entrystartpar) StaticHandler(w http.ResponseWriter, r *http.Request)</a></dd>
+				
+			
+				
+				<dd><a href="#Loc">type Loc</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Query">type Query</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Startpar">type Startpar</a></dd>
+				
+				
 			
 			
 			</dl>
@@ -123,9 +151,11 @@
 			<p>
 			<span style="font-size:90%">
 			
-				<a href="/src/github.com/remotejob/docker-goreverseproxy/handlers/blog.go">blog.go</a>
+				<a href="/src/github.com/remotejob/apartment_ru_go/handlers/all_other_req.go">all_other_req.go</a>
 			
-				<a href="/src/github.com/remotejob/docker-goreverseproxy/handlers/sitemap.go">sitemap.go</a>
+				<a href="/src/github.com/remotejob/apartment_ru_go/handlers/sitemap.go">sitemap.go</a>
+			
+				<a href="/src/github.com/remotejob/apartment_ru_go/handlers/static_handler.go">static_handler.go</a>
 			
 			</span>
 			</p>
@@ -175,32 +205,132 @@
 		
 			
 			
-			<h2 id="CheckServeSitemap">func <a href="/src/github.com/remotejob/docker-goreverseproxy/handlers/sitemap.go?s=616:678#L28">CheckServeSitemap</a>
+			<h2 id="CheckServeSitemap">func <a href="/src/github.com/remotejob/apartment_ru_go/handlers/sitemap.go?s=94:156#L3">CheckServeSitemap</a>
 				<a class="permalink" href="#CheckServeSitemap">&#xb6;</a>
 			</h2>
 			<pre>func CheckServeSitemap(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>, r *<a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#Request">Request</a>)</pre>
-			<p>
-CheckServeSitemap CheckServeSitemap
-</p>
-
+			
 			
 			
 
 		
 			
 			
-			<h2 id="CreateArticelePage">func <a href="/src/github.com/remotejob/docker-goreverseproxy/handlers/blog.go?s=526:589#L21">CreateArticelePage</a>
-				<a class="permalink" href="#CreateArticelePage">&#xb6;</a>
+			<h2 id="Elaborate">func <a href="/src/github.com/remotejob/apartment_ru_go/handlers/all_other_req.go?s=414:477#L20">Elaborate</a>
+				<a class="permalink" href="#Elaborate">&#xb6;</a>
 			</h2>
-			<pre>func CreateArticelePage(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>, r *<a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#Request">Request</a>)</pre>
-			<p>
-CreateArticelePage Create JSON result
-</p>
-
+			<pre>func Elaborate(c <a href="/pkg/github.com/zenazn/goji/web/">web</a>.<a href="/pkg/github.com/zenazn/goji/web/#C">C</a>, w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>, r *<a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#Request">Request</a>)</pre>
+			
 			
 			
 
 		
+		
+			
+			
+			<h2 id="Entrystartpar">type <a href="/src/github.com/remotejob/apartment_ru_go/handlers/static_handler.go?s=111:166#L6">Entrystartpar</a>
+				<a class="permalink" href="#Entrystartpar">&#xb6;</a>
+			</h2>
+			<pre>type Entrystartpar struct {
+    Modstartpar <a href="#Startpar">Startpar</a>
+}</pre>
+			
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewEntrystartpar">func <a href="/src/github.com/remotejob/apartment_ru_go/handlers/static_handler.go?s=168:206#L12">NewEntrystartpar</a>
+					<a class="permalink" href="#NewEntrystartpar">&#xb6;</a>
+				</h3>
+				<pre>func NewEntrystartpar() *<a href="#Entrystartpar">Entrystartpar</a></pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="Entrystartpar.StaticHandler">func (*Entrystartpar) <a href="/src/github.com/remotejob/apartment_ru_go/handlers/static_handler.go?s=252:336#L18">StaticHandler</a>
+					<a class="permalink" href="#Entrystartpar.StaticHandler">&#xb6;</a>
+				</h3>
+				<pre>func (startpar *<a href="#Entrystartpar">Entrystartpar</a>) StaticHandler(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>, r *<a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#Request">Request</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Loc">type <a href="/src/github.com/remotejob/apartment_ru_go/handlers/all_other_req.go?s=263:278#L9">Loc</a>
+				<a class="permalink" href="#Loc">&#xb6;</a>
+			</h2>
+			<pre>type Loc <a href="/pkg/builtin/#string">string</a></pre>
+			
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Query">type <a href="/src/github.com/remotejob/apartment_ru_go/handlers/all_other_req.go?s=174:262#L5">Query</a>
+				<a class="permalink" href="#Query">&#xb6;</a>
+			</h2>
+			<pre>type Query struct {
+    XMLName <a href="/pkg/encoding/xml/">xml</a>.<a href="/pkg/encoding/xml/#Name">Name</a> `xml:&#34;urlset&#34;`
+    Locs    []<a href="/pkg/builtin/#string">string</a> `xml:&#34;url&gt;loc&#34;`
+}</pre>
+			
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Startpar">type <a href="/src/github.com/remotejob/apartment_ru_go/handlers/static_handler.go?s=60:109#L1">Startpar</a>
+				<a class="permalink" href="#Startpar">&#xb6;</a>
+			</h2>
+			<pre>type Startpar struct {
+    Webrootdir <a href="/pkg/builtin/#string">string</a>
+}</pre>
+			
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
 		
 	
 
@@ -209,6 +339,44 @@ CreateArticelePage Create JSON result
 
 
 
+
+	
+	
+		<h2 id="pkg-subdirectories">Subdirectories</h2>
+	
+	
+
+
+	<div class="pkg-dir">
+		<table>
+			<tr>
+				<th class="pkg-name">Name</th>
+				<th class="pkg-synopsis">Synopsis</th>
+			</tr>
+
+			
+			<tr>
+				<td colspan="2"><a href="..">..</a></td>
+			</tr>
+			
+
+			
+				
+					<tr>
+						<td class="pkg-name" style="padding-left: 0px;">
+							<a href="robots/">robots</a>
+						</td>
+						<td class="pkg-synopsis">
+							
+						</td>
+					</tr>
+				
+			
+		</table>
+	</div>
+
+
+	
 
 
 

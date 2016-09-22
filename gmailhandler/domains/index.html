@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#375EAB">
 
-  <title>handlers - The Go Programming Language</title>
+  <title>domains - The Go Programming Language</title>
 
 <link type="text/css" rel="stylesheet" href="/lib/godoc/style.css">
 
@@ -42,7 +42,7 @@
 <div class="container">
 
 
-  <h1>Package handlers</h1>
+  <h1>Package domains</h1>
 
 
 
@@ -71,7 +71,7 @@
 		
 		<div id="short-nav">
 			<dl>
-			<dd><code>import "github.com/remotejob/docker-goreverseproxy/handlers"</code></dd>
+			<dd><code>import "github.com/remotejob/gmailhandler/domains"</code></dd>
 			</dl>
 			<dl>
 			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
@@ -105,12 +105,21 @@
 			
 			
 			
-				
-				<dd><a href="#CheckServeSitemap">func CheckServeSitemap(w http.ResponseWriter, r *http.Request)</a></dd>
 			
 				
-				<dd><a href="#CreateArticelePage">func CreateArticelePage(w http.ResponseWriter, r *http.Request)</a></dd>
+				<dd><a href="#Client">type Client</a></dd>
+				
+				
 			
+				
+				<dd><a href="#Email">type Email</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ServerConfig">type ServerConfig</a></dd>
+				
+				
 			
 			
 			</dl>
@@ -123,9 +132,7 @@
 			<p>
 			<span style="font-size:90%">
 			
-				<a href="/src/github.com/remotejob/docker-goreverseproxy/handlers/blog.go">blog.go</a>
-			
-				<a href="/src/github.com/remotejob/docker-goreverseproxy/handlers/sitemap.go">sitemap.go</a>
+				<a href="/src/github.com/remotejob/gmailhandler/domains/domains.go">domains.go</a>
 			
 			</span>
 			</p>
@@ -173,34 +180,81 @@
 		
 		
 		
-			
-			
-			<h2 id="CheckServeSitemap">func <a href="/src/github.com/remotejob/docker-goreverseproxy/handlers/sitemap.go?s=616:678#L28">CheckServeSitemap</a>
-				<a class="permalink" href="#CheckServeSitemap">&#xb6;</a>
-			</h2>
-			<pre>func CheckServeSitemap(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>, r *<a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#Request">Request</a>)</pre>
-			<p>
-CheckServeSitemap CheckServeSitemap
-</p>
-
-			
-			
-
 		
 			
 			
-			<h2 id="CreateArticelePage">func <a href="/src/github.com/remotejob/docker-goreverseproxy/handlers/blog.go?s=526:589#L21">CreateArticelePage</a>
-				<a class="permalink" href="#CreateArticelePage">&#xb6;</a>
+			<h2 id="Client">type <a href="/src/github.com/remotejob/gmailhandler/domains/domains.go?s=88:153#L1">Client</a>
+				<a class="permalink" href="#Client">&#xb6;</a>
 			</h2>
-			<pre>func CreateArticelePage(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>, r *<a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#Request">Request</a>)</pre>
-			<p>
-CreateArticelePage Create JSON result
-</p>
+			<pre>type Client struct {
+    Phone <a href="/pkg/builtin/#string">string</a>
+    Email <a href="/pkg/builtin/#string">string</a>
+    Skype <a href="/pkg/builtin/#string">string</a>
+}</pre>
+			
+
+			
+
+			
 
 			
 			
+			
 
+			
+
+			
 		
+			
+			
+			<h2 id="Email">type <a href="/src/github.com/remotejob/gmailhandler/domains/domains.go?s=17:86#L1">Email</a>
+				<a class="permalink" href="#Email">&#xb6;</a>
+			</h2>
+			<pre>type Email struct {
+    To      <a href="/pkg/builtin/#string">string</a>
+    Subject <a href="/pkg/builtin/#string">string</a>
+    Body    <a href="/pkg/builtin/#string">string</a>
+}</pre>
+			
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ServerConfig">type <a href="/src/github.com/remotejob/gmailhandler/domains/domains.go?s=156:260#L7">ServerConfig</a>
+				<a class="permalink" href="#ServerConfig">&#xb6;</a>
+			</h2>
+			<pre>type ServerConfig struct {
+    Login struct {
+        Glogin <a href="/pkg/builtin/#string">string</a>
+    }
+    Pass struct {
+        Gpass <a href="/pkg/builtin/#string">string</a>
+    }
+}</pre>
+			
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
 		
 	
 

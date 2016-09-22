@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#375EAB">
 
-  <title>handlers - The Go Programming Language</title>
+  <title>dbhandler - The Go Programming Language</title>
 
 <link type="text/css" rel="stylesheet" href="/lib/godoc/style.css">
 
@@ -42,7 +42,7 @@
 <div class="container">
 
 
-  <h1>Package handlers</h1>
+  <h1>Package dbhandler</h1>
 
 
 
@@ -71,7 +71,7 @@
 		
 		<div id="short-nav">
 			<dl>
-			<dd><code>import "github.com/remotejob/docker-goreverseproxy/handlers"</code></dd>
+			<dd><code>import "github.com/remotejob/gojobextractor/dbhandler"</code></dd>
 			</dl>
 			<dl>
 			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
@@ -106,10 +106,25 @@
 			
 			
 				
-				<dd><a href="#CheckServeSitemap">func CheckServeSitemap(w http.ResponseWriter, r *http.Request)</a></dd>
+				<dd><a href="#ExternalEmploers">func ExternalEmploers(dbsession mgo.Session) []domains.JobOffer</a></dd>
 			
 				
-				<dd><a href="#CreateArticelePage">func CreateArticelePage(w http.ResponseWriter, r *http.Request)</a></dd>
+				<dd><a href="#FindNotApplyedEmployers">func FindNotApplyedEmployers(dbsession mgo.Session) []domains.JobOffer</a></dd>
+			
+				
+				<dd><a href="#GetAllEmployers">func GetAllEmployers(dbsession mgo.Session) []domains.JobOffer</a></dd>
+			
+				
+				<dd><a href="#InsertRecord">func InsertRecord(dbsession mgo.Session, joboffer domains.JobOffer)</a></dd>
+			
+				
+				<dd><a href="#UpdateEmployer">func UpdateEmployer(dbsession mgo.Session, joboffer domains.JobOffer)</a></dd>
+			
+				
+				<dd><a href="#UpdateEmployerById">func UpdateEmployerById(dbsession mgo.Session, id string)</a></dd>
+			
+				
+				<dd><a href="#UpdateExtEmploerEmail">func UpdateExtEmploerEmail(dbsession mgo.Session, email domains.Email)</a></dd>
 			
 			
 			
@@ -123,9 +138,7 @@
 			<p>
 			<span style="font-size:90%">
 			
-				<a href="/src/github.com/remotejob/docker-goreverseproxy/handlers/blog.go">blog.go</a>
-			
-				<a href="/src/github.com/remotejob/docker-goreverseproxy/handlers/sitemap.go">sitemap.go</a>
+				<a href="/src/github.com/remotejob/gojobextractor/dbhandler/dbhandler.go">dbhandler.go</a>
 			
 			</span>
 			</p>
@@ -175,28 +188,77 @@
 		
 			
 			
-			<h2 id="CheckServeSitemap">func <a href="/src/github.com/remotejob/docker-goreverseproxy/handlers/sitemap.go?s=616:678#L28">CheckServeSitemap</a>
-				<a class="permalink" href="#CheckServeSitemap">&#xb6;</a>
+			<h2 id="ExternalEmploers">func <a href="/src/github.com/remotejob/gojobextractor/dbhandler/dbhandler.go?s=563:626#L25">ExternalEmploers</a>
+				<a class="permalink" href="#ExternalEmploers">&#xb6;</a>
 			</h2>
-			<pre>func CheckServeSitemap(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>, r *<a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#Request">Request</a>)</pre>
-			<p>
-CheckServeSitemap CheckServeSitemap
-</p>
-
+			<pre>func ExternalEmploers(dbsession mgo.<a href="#Session">Session</a>) []<a href="/pkg/github.com/remotejob/gojobextractor/domains/">domains</a>.<a href="/pkg/github.com/remotejob/gojobextractor/domains/#JobOffer">JobOffer</a></pre>
+			
 			
 			
 
 		
 			
 			
-			<h2 id="CreateArticelePage">func <a href="/src/github.com/remotejob/docker-goreverseproxy/handlers/blog.go?s=526:589#L21">CreateArticelePage</a>
-				<a class="permalink" href="#CreateArticelePage">&#xb6;</a>
+			<h2 id="FindNotApplyedEmployers">func <a href="/src/github.com/remotejob/gojobextractor/dbhandler/dbhandler.go?s=1745:1815#L82">FindNotApplyedEmployers</a>
+				<a class="permalink" href="#FindNotApplyedEmployers">&#xb6;</a>
 			</h2>
-			<pre>func CreateArticelePage(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>, r *<a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#Request">Request</a>)</pre>
-			<p>
-CreateArticelePage Create JSON result
-</p>
+			<pre>func FindNotApplyedEmployers(dbsession mgo.<a href="#Session">Session</a>) []<a href="/pkg/github.com/remotejob/gojobextractor/domains/">domains</a>.<a href="/pkg/github.com/remotejob/gojobextractor/domains/#JobOffer">JobOffer</a></pre>
+			
+			
+			
 
+		
+			
+			
+			<h2 id="GetAllEmployers">func <a href="/src/github.com/remotejob/gojobextractor/dbhandler/dbhandler.go?s=1050:1112#L42">GetAllEmployers</a>
+				<a class="permalink" href="#GetAllEmployers">&#xb6;</a>
+			</h2>
+			<pre>func GetAllEmployers(dbsession mgo.<a href="#Session">Session</a>) []<a href="/pkg/github.com/remotejob/gojobextractor/domains/">domains</a>.<a href="/pkg/github.com/remotejob/gojobextractor/domains/#JobOffer">JobOffer</a></pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="InsertRecord">func <a href="/src/github.com/remotejob/gojobextractor/dbhandler/dbhandler.go?s=1331:1398#L57">InsertRecord</a>
+				<a class="permalink" href="#InsertRecord">&#xb6;</a>
+			</h2>
+			<pre>func InsertRecord(dbsession mgo.<a href="#Session">Session</a>, joboffer <a href="/pkg/github.com/remotejob/gojobextractor/domains/">domains</a>.<a href="/pkg/github.com/remotejob/gojobextractor/domains/#JobOffer">JobOffer</a>)</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="UpdateEmployer">func <a href="/src/github.com/remotejob/gojobextractor/dbhandler/dbhandler.go?s=2077:2146#L99">UpdateEmployer</a>
+				<a class="permalink" href="#UpdateEmployer">&#xb6;</a>
+			</h2>
+			<pre>func UpdateEmployer(dbsession mgo.<a href="#Session">Session</a>, joboffer <a href="/pkg/github.com/remotejob/gojobextractor/domains/">domains</a>.<a href="/pkg/github.com/remotejob/gojobextractor/domains/#JobOffer">JobOffer</a>)</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="UpdateEmployerById">func <a href="/src/github.com/remotejob/gojobextractor/dbhandler/dbhandler.go?s=2338:2395#L113">UpdateEmployerById</a>
+				<a class="permalink" href="#UpdateEmployerById">&#xb6;</a>
+			</h2>
+			<pre>func UpdateEmployerById(dbsession mgo.<a href="#Session">Session</a>, id <a href="/pkg/builtin/#string">string</a>)</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="UpdateExtEmploerEmail">func <a href="/src/github.com/remotejob/gojobextractor/dbhandler/dbhandler.go?s=135:205#L1">UpdateExtEmploerEmail</a>
+				<a class="permalink" href="#UpdateExtEmploerEmail">&#xb6;</a>
+			</h2>
+			<pre>func UpdateExtEmploerEmail(dbsession mgo.<a href="#Session">Session</a>, email <a href="/pkg/github.com/remotejob/gojobextractor/domains/">domains</a>.<a href="/pkg/github.com/remotejob/gojobextractor/domains/#Email">Email</a>)</pre>
+			
 			
 			
 

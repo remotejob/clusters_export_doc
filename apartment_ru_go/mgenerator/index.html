@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#375EAB">
 
-  <title>handlers - The Go Programming Language</title>
+  <title>mgenerator - The Go Programming Language</title>
 
 <link type="text/css" rel="stylesheet" href="/lib/godoc/style.css">
 
@@ -42,7 +42,7 @@
 <div class="container">
 
 
-  <h1>Package handlers</h1>
+  <h1>Package mgenerator</h1>
 
 
 
@@ -71,7 +71,7 @@
 		
 		<div id="short-nav">
 			<dl>
-			<dd><code>import "github.com/remotejob/docker-goreverseproxy/handlers"</code></dd>
+			<dd><code>import "github.com/remotejob/apartment_ru_go/mgenerator"</code></dd>
 			</dl>
 			<dl>
 			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
@@ -106,11 +106,33 @@
 			
 			
 				
-				<dd><a href="#CheckServeSitemap">func CheckServeSitemap(w http.ResponseWriter, r *http.Request)</a></dd>
+				<dd><a href="#Generate">func Generate(book []byte) string</a></dd>
+			
 			
 				
-				<dd><a href="#CreateArticelePage">func CreateArticelePage(w http.ResponseWriter, r *http.Request)</a></dd>
+				<dd><a href="#Chain">type Chain</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewChain">func NewChain(prefixLen int) *Chain</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Chain.Generate">func (c *Chain) Generate(n int) string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Chain.Write">func (c *Chain) Write(b []byte)</a></dd>
+				
 			
+				
+				<dd><a href="#Prefix">type Prefix</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Prefix.Shift">func (p Prefix) Shift(word string)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Prefix.String">func (p Prefix) String() string</a></dd>
+				
 			
 			
 			</dl>
@@ -123,9 +145,7 @@
 			<p>
 			<span style="font-size:90%">
 			
-				<a href="/src/github.com/remotejob/docker-goreverseproxy/handlers/blog.go">blog.go</a>
-			
-				<a href="/src/github.com/remotejob/docker-goreverseproxy/handlers/sitemap.go">sitemap.go</a>
+				<a href="/src/github.com/remotejob/apartment_ru_go/mgenerator/mgenerator.go">mgenerator.go</a>
 			
 			</span>
 			</p>
@@ -175,32 +195,112 @@
 		
 			
 			
-			<h2 id="CheckServeSitemap">func <a href="/src/github.com/remotejob/docker-goreverseproxy/handlers/sitemap.go?s=616:678#L28">CheckServeSitemap</a>
-				<a class="permalink" href="#CheckServeSitemap">&#xb6;</a>
+			<h2 id="Generate">func <a href="/src/github.com/remotejob/apartment_ru_go/mgenerator/mgenerator.go?s=1159:1193#L55">Generate</a>
+				<a class="permalink" href="#Generate">&#xb6;</a>
 			</h2>
-			<pre>func CheckServeSitemap(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>, r *<a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#Request">Request</a>)</pre>
-			<p>
-CheckServeSitemap CheckServeSitemap
-</p>
-
+			<pre>func Generate(book []<a href="/pkg/builtin/#byte">byte</a>) <a href="/pkg/builtin/#string">string</a></pre>
+			
 			
 			
 
 		
+		
 			
 			
-			<h2 id="CreateArticelePage">func <a href="/src/github.com/remotejob/docker-goreverseproxy/handlers/blog.go?s=526:589#L21">CreateArticelePage</a>
-				<a class="permalink" href="#CreateArticelePage">&#xb6;</a>
+			<h2 id="Chain">type <a href="/src/github.com/remotejob/apartment_ru_go/mgenerator/mgenerator.go?s=422:489#L15">Chain</a>
+				<a class="permalink" href="#Chain">&#xb6;</a>
 			</h2>
-			<pre>func CreateArticelePage(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>, r *<a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#Request">Request</a>)</pre>
-			<p>
-CreateArticelePage Create JSON result
+			<pre>type Chain struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}</pre>
+			
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewChain">func <a href="/src/github.com/remotejob/apartment_ru_go/mgenerator/mgenerator.go?s=491:526#L20">NewChain</a>
+					<a class="permalink" href="#NewChain">&#xb6;</a>
+				</h3>
+				<pre>func NewChain(prefixLen <a href="/pkg/builtin/#int">int</a>) *<a href="#Chain">Chain</a></pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="Chain.Generate">func (*Chain) <a href="/src/github.com/remotejob/apartment_ru_go/mgenerator/mgenerator.go?s=839:877#L38">Generate</a>
+					<a class="permalink" href="#Chain.Generate">&#xb6;</a>
+				</h3>
+				<pre>func (c *<a href="#Chain">Chain</a>) Generate(n <a href="/pkg/builtin/#int">int</a>) <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Chain.Write">func (*Chain) <a href="/src/github.com/remotejob/apartment_ru_go/mgenerator/mgenerator.go?s=585:616#L24">Write</a>
+					<a class="permalink" href="#Chain.Write">&#xb6;</a>
+				</h3>
+				<pre>func (c *<a href="#Chain">Chain</a>) Write(b []<a href="/pkg/builtin/#byte">byte</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Prefix">type <a href="/src/github.com/remotejob/apartment_ru_go/mgenerator/mgenerator.go?s=117:137#L2">Prefix</a>
+				<a class="permalink" href="#Prefix">&#xb6;</a>
+			</h2>
+			<pre>type Prefix []<a href="/pkg/builtin/#string">string</a></pre>
+			
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Prefix.Shift">func (Prefix) <a href="/src/github.com/remotejob/apartment_ru_go/mgenerator/mgenerator.go?s=346:380#L10">Shift</a>
+					<a class="permalink" href="#Prefix.Shift">&#xb6;</a>
+				</h3>
+				<pre>func (p <a href="#Prefix">Prefix</a>) Shift(word <a href="/pkg/builtin/#string">string</a>)</pre>
+				<p>
+Shift removes the first word from the Prefix and appends the given word.
 </p>
 
+				
+				
+				
 			
-			
+				
+				<h3 id="Prefix.String">func (Prefix) <a href="/src/github.com/remotejob/apartment_ru_go/mgenerator/mgenerator.go?s=204:235#L5">String</a>
+					<a class="permalink" href="#Prefix.String">&#xb6;</a>
+				</h3>
+				<pre>func (p <a href="#Prefix">Prefix</a>) String() <a href="/pkg/builtin/#string">string</a></pre>
+				<p>
+String returns the Prefix as a string (for use as a map key).
+</p>
 
-		
+				
+				
+				
+			
 		
 	
 

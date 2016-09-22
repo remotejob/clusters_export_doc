@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#375EAB">
 
-  <title>handlers - The Go Programming Language</title>
+  <title>dbhandler - The Go Programming Language</title>
 
 <link type="text/css" rel="stylesheet" href="/lib/godoc/style.css">
 
@@ -42,7 +42,7 @@
 <div class="container">
 
 
-  <h1>Package handlers</h1>
+  <h1>Package dbhandler</h1>
 
 
 
@@ -71,7 +71,7 @@
 		
 		<div id="short-nav">
 			<dl>
-			<dd><code>import "github.com/remotejob/docker-goreverseproxy/handlers"</code></dd>
+			<dd><code>import "github.com/remotejob/kaukotyoeu/dbhandler"</code></dd>
 			</dl>
 			<dl>
 			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
@@ -106,10 +106,19 @@
 			
 			
 				
-				<dd><a href="#CheckServeSitemap">func CheckServeSitemap(w http.ResponseWriter, r *http.Request)</a></dd>
+				<dd><a href="#GetAllForStatic">func GetAllForStatic(session mgo.Session, site string) []domains.Articlefull</a></dd>
 			
 				
-				<dd><a href="#CreateArticelePage">func CreateArticelePage(w http.ResponseWriter, r *http.Request)</a></dd>
+				<dd><a href="#GetAllSitemaplinks">func GetAllSitemaplinks(session mgo.Session, site string) []domains.Sitemap_from_db</a></dd>
+			
+				
+				<dd><a href="#GetAllUseful">func GetAllUseful(session mgo.Session, themes string, locale string) []domains.Gphrase</a></dd>
+			
+				
+				<dd><a href="#GetOneArticle">func GetOneArticle(session mgo.Session, stitle string) domains.Articlefull</a></dd>
+			
+				
+				<dd><a href="#InsertLogRecord">func InsertLogRecord(session mgo.Session, record domains.LogRecord)</a></dd>
 			
 			
 			
@@ -123,9 +132,7 @@
 			<p>
 			<span style="font-size:90%">
 			
-				<a href="/src/github.com/remotejob/docker-goreverseproxy/handlers/blog.go">blog.go</a>
-			
-				<a href="/src/github.com/remotejob/docker-goreverseproxy/handlers/sitemap.go">sitemap.go</a>
+				<a href="/src/github.com/remotejob/kaukotyoeu/dbhandler/dbhandler.go">dbhandler.go</a>
 			
 			</span>
 			</p>
@@ -175,12 +182,12 @@
 		
 			
 			
-			<h2 id="CheckServeSitemap">func <a href="/src/github.com/remotejob/docker-goreverseproxy/handlers/sitemap.go?s=616:678#L28">CheckServeSitemap</a>
-				<a class="permalink" href="#CheckServeSitemap">&#xb6;</a>
+			<h2 id="GetAllForStatic">func <a href="/src/github.com/remotejob/kaukotyoeu/dbhandler/dbhandler.go?s=409:485#L18">GetAllForStatic</a>
+				<a class="permalink" href="#GetAllForStatic">&#xb6;</a>
 			</h2>
-			<pre>func CheckServeSitemap(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>, r *<a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#Request">Request</a>)</pre>
+			<pre>func GetAllForStatic(session mgo.<a href="#Session">Session</a>, site <a href="/pkg/builtin/#string">string</a>) []<a href="/pkg/github.com/remotejob/kaukotyoeu/domains/">domains</a>.<a href="/pkg/github.com/remotejob/kaukotyoeu/domains/#Articlefull">Articlefull</a></pre>
 			<p>
-CheckServeSitemap CheckServeSitemap
+GetAllForStatic coments
 </p>
 
 			
@@ -189,12 +196,48 @@ CheckServeSitemap CheckServeSitemap
 		
 			
 			
-			<h2 id="CreateArticelePage">func <a href="/src/github.com/remotejob/docker-goreverseproxy/handlers/blog.go?s=526:589#L21">CreateArticelePage</a>
-				<a class="permalink" href="#CreateArticelePage">&#xb6;</a>
+			<h2 id="GetAllSitemaplinks">func <a href="/src/github.com/remotejob/kaukotyoeu/dbhandler/dbhandler.go?s=1066:1149#L54">GetAllSitemaplinks</a>
+				<a class="permalink" href="#GetAllSitemaplinks">&#xb6;</a>
 			</h2>
-			<pre>func CreateArticelePage(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>, r *<a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#Request">Request</a>)</pre>
+			<pre>func GetAllSitemaplinks(session mgo.<a href="#Session">Session</a>, site <a href="/pkg/builtin/#string">string</a>) []<a href="/pkg/github.com/remotejob/kaukotyoeu/domains/">domains</a>.<a href="/pkg/github.com/remotejob/kaukotyoeu/domains/#Sitemap_from_db">Sitemap_from_db</a></pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="GetAllUseful">func <a href="/src/github.com/remotejob/kaukotyoeu/dbhandler/dbhandler.go?s=1432:1518#L69">GetAllUseful</a>
+				<a class="permalink" href="#GetAllUseful">&#xb6;</a>
+			</h2>
+			<pre>func GetAllUseful(session mgo.<a href="#Session">Session</a>, themes <a href="/pkg/builtin/#string">string</a>, locale <a href="/pkg/builtin/#string">string</a>) []<a href="/pkg/github.com/remotejob/kaukotyoeu/domains/">domains</a>.<a href="/pkg/github.com/remotejob/kaukotyoeu/domains/#Gphrase">Gphrase</a></pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="GetOneArticle">func <a href="/src/github.com/remotejob/kaukotyoeu/dbhandler/dbhandler.go?s=739:813#L35">GetOneArticle</a>
+				<a class="permalink" href="#GetOneArticle">&#xb6;</a>
+			</h2>
+			<pre>func GetOneArticle(session mgo.<a href="#Session">Session</a>, stitle <a href="/pkg/builtin/#string">string</a>) <a href="/pkg/github.com/remotejob/kaukotyoeu/domains/">domains</a>.<a href="/pkg/github.com/remotejob/kaukotyoeu/domains/#Articlefull">Articlefull</a></pre>
 			<p>
-CreateArticelePage Create JSON result
+GetOneArticle
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="InsertLogRecord">func <a href="/src/github.com/remotejob/kaukotyoeu/dbhandler/dbhandler.go?s=169:236#L3">InsertLogRecord</a>
+				<a class="permalink" href="#InsertLogRecord">&#xb6;</a>
+			</h2>
+			<pre>func InsertLogRecord(session mgo.<a href="#Session">Session</a>, record <a href="/pkg/github.com/remotejob/kaukotyoeu/domains/">domains</a>.<a href="/pkg/github.com/remotejob/kaukotyoeu/domains/#LogRecord">LogRecord</a>)</pre>
+			<p>
+InsertLogRecord InsertLogRecord
 </p>
 
 			

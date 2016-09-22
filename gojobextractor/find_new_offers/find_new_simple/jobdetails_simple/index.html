@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#375EAB">
 
-  <title>handlers - The Go Programming Language</title>
+  <title>jobdetails_simple - The Go Programming Language</title>
 
 <link type="text/css" rel="stylesheet" href="/lib/godoc/style.css">
 
@@ -42,7 +42,7 @@
 <div class="container">
 
 
-  <h1>Package handlers</h1>
+  <h1>Package jobdetails_simple</h1>
 
 
 
@@ -71,7 +71,7 @@
 		
 		<div id="short-nav">
 			<dl>
-			<dd><code>import "github.com/remotejob/docker-goreverseproxy/handlers"</code></dd>
+			<dd><code>import "github.com/remotejob/gojobextractor/find_new_offers/find_new_simple/jobdetails_simple"</code></dd>
 			</dl>
 			<dl>
 			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
@@ -105,12 +105,26 @@
 			
 			
 			
-				
-				<dd><a href="#CheckServeSitemap">func CheckServeSitemap(w http.ResponseWriter, r *http.Request)</a></dd>
 			
 				
-				<dd><a href="#CreateArticelePage">func CreateArticelePage(w http.ResponseWriter, r *http.Request)</a></dd>
-			
+				<dd><a href="#JobOffer">type JobOffer</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewJobOffers">func NewJobOffers() *JobOffer</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#JobOffer.ExamDbRecord">func (jo *JobOffer) ExamDbRecord(session mgo.Session)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#JobOffer.FindDescription">func (jo *JobOffer) FindDescription(node *html.Node)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#JobOffer.FindLocation">func (jo *JobOffer) FindLocation(node *html.Node)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#JobOffer.ParsePage">func (jo *JobOffer) ParsePage(urlstr string)</a></dd>
+				
 			
 			
 			</dl>
@@ -123,9 +137,7 @@
 			<p>
 			<span style="font-size:90%">
 			
-				<a href="/src/github.com/remotejob/docker-goreverseproxy/handlers/blog.go">blog.go</a>
-			
-				<a href="/src/github.com/remotejob/docker-goreverseproxy/handlers/sitemap.go">sitemap.go</a>
+				<a href="/src/github.com/remotejob/gojobextractor/find_new_offers/find_new_simple/jobdetails_simple/jobdetails_simple.go">jobdetails_simple.go</a>
 			
 			</span>
 			</p>
@@ -173,34 +185,87 @@
 		
 		
 		
-			
-			
-			<h2 id="CheckServeSitemap">func <a href="/src/github.com/remotejob/docker-goreverseproxy/handlers/sitemap.go?s=616:678#L28">CheckServeSitemap</a>
-				<a class="permalink" href="#CheckServeSitemap">&#xb6;</a>
-			</h2>
-			<pre>func CheckServeSitemap(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>, r *<a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#Request">Request</a>)</pre>
-			<p>
-CheckServeSitemap CheckServeSitemap
-</p>
-
-			
-			
-
 		
 			
 			
-			<h2 id="CreateArticelePage">func <a href="/src/github.com/remotejob/docker-goreverseproxy/handlers/blog.go?s=526:589#L21">CreateArticelePage</a>
-				<a class="permalink" href="#CreateArticelePage">&#xb6;</a>
+			<h2 id="JobOffer">type <a href="/src/github.com/remotejob/gojobextractor/find_new_offers/find_new_simple/jobdetails_simple/jobdetails_simple.go?s=287:542#L7">JobOffer</a>
+				<a class="permalink" href="#JobOffer">&#xb6;</a>
 			</h2>
-			<pre>func CreateArticelePage(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>, r *<a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#Request">Request</a>)</pre>
-			<p>
-CreateArticelePage Create JSON result
-</p>
+			<pre>type JobOffer struct {
+    Id           <a href="/pkg/builtin/#string">string</a>
+    Company      <a href="/pkg/builtin/#string">string</a>
+    Title        <a href="/pkg/builtin/#string">string</a>
+    Location     <a href="/pkg/builtin/#string">string</a>
+    Tags         []<a href="/pkg/builtin/#string">string</a>
+    Externallink <a href="/pkg/builtin/#string">string</a>
+    Email        <a href="/pkg/builtin/#string">string</a>
+    Hits         <a href="/pkg/builtin/#int">int</a>
+    Created_at   <a href="/pkg/time/">time</a>.<a href="/pkg/time/#Time">Time</a>
+    Applied      <a href="/pkg/builtin/#bool">bool</a>
+    Description  <a href="/pkg/builtin/#string">string</a>
+}</pre>
+			
+
+			
+
+			
 
 			
 			
+			
 
-		
+			
+				
+				<h3 id="NewJobOffers">func <a href="/src/github.com/remotejob/gojobextractor/find_new_offers/find_new_simple/jobdetails_simple/jobdetails_simple.go?s=544:573#L21">NewJobOffers</a>
+					<a class="permalink" href="#NewJobOffers">&#xb6;</a>
+				</h3>
+				<pre>func NewJobOffers() *<a href="#JobOffer">JobOffer</a></pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="JobOffer.ExamDbRecord">func (*JobOffer) <a href="/src/github.com/remotejob/gojobextractor/find_new_offers/find_new_simple/jobdetails_simple/jobdetails_simple.go?s=2880:2933#L166">ExamDbRecord</a>
+					<a class="permalink" href="#JobOffer.ExamDbRecord">&#xb6;</a>
+				</h3>
+				<pre>func (jo *<a href="#JobOffer">JobOffer</a>) ExamDbRecord(session mgo.<a href="#Session">Session</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="JobOffer.FindDescription">func (*JobOffer) <a href="/src/github.com/remotejob/gojobextractor/find_new_offers/find_new_simple/jobdetails_simple/jobdetails_simple.go?s=2607:2659#L152">FindDescription</a>
+					<a class="permalink" href="#JobOffer.FindDescription">&#xb6;</a>
+				</h3>
+				<pre>func (jo *<a href="#JobOffer">JobOffer</a>) FindDescription(node *<a href="/pkg/golang.org/x/net/html/">html</a>.<a href="/pkg/golang.org/x/net/html/#Node">Node</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="JobOffer.FindLocation">func (*JobOffer) <a href="/src/github.com/remotejob/gojobextractor/find_new_offers/find_new_simple/jobdetails_simple/jobdetails_simple.go?s=2396:2445#L139">FindLocation</a>
+					<a class="permalink" href="#JobOffer.FindLocation">&#xb6;</a>
+				</h3>
+				<pre>func (jo *<a href="#JobOffer">JobOffer</a>) FindLocation(node *<a href="/pkg/golang.org/x/net/html/">html</a>.<a href="/pkg/golang.org/x/net/html/#Node">Node</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="JobOffer.ParsePage">func (*JobOffer) <a href="/src/github.com/remotejob/gojobextractor/find_new_offers/find_new_simple/jobdetails_simple/jobdetails_simple.go?s=842:886#L40">ParsePage</a>
+					<a class="permalink" href="#JobOffer.ParsePage">&#xb6;</a>
+				</h3>
+				<pre>func (jo *<a href="#JobOffer">JobOffer</a>) ParsePage(urlstr <a href="/pkg/builtin/#string">string</a>)</pre>
+				
+				
+				
+				
+			
 		
 	
 
