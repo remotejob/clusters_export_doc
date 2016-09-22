@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>src/github.com/remotejob/kaukotyoeu/dbhandler/dbhandler.go - The Go Programming Language</title>
+
+<link type="text/css" rel="stylesheet" href="/lib/godoc/style.css">
+
+<link rel="stylesheet" href="/lib/godoc/jquery.treeview.css">
+<script type="text/javascript">window.initFuncs = [];</script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="/">The Go Programming Language</a></div>
+<div class="top-heading" id="heading-narrow"><a href="/">Go</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+<form method="GET" action="/search">
+<div id="menu">
+<a href="/doc/">Documents</a>
+<a href="/pkg/">Packages</a>
+<a href="/project/">The Project</a>
+<a href="/help/">Help</a>
+<a href="/blog/">Blog</a>
+
+<input type="text" id="search" name="q" class="inactive" value="Search" placeholder="Search">
+</div>
+</form>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>Source file src/github.com/remotejob/kaukotyoeu/dbhandler/dbhandler.go</h1>
+
+
+
+
+<div id="nav"></div>
+
+
+<script type='text/javascript'>document.ANALYSIS_DATA = null;</script>
+<pre><span id="L1" class="ln">     1</span>	package dbhandler
+<span id="L2" class="ln">     2</span>	
+<span id="L3" class="ln">     3</span>	import (
+<span id="L4" class="ln">     4</span>		<span class="comment">//	&#34;fmt&#34;</span>
+<span id="L5" class="ln">     5</span>		&#34;log&#34;
+<span id="L6" class="ln">     6</span>	
+<span id="L7" class="ln">     7</span>		&#34;github.com/remotejob/kaukotyoeu/domains&#34;
+<span id="L8" class="ln">     8</span>		&#34;gopkg.in/mgo.v2&#34;
+<span id="L9" class="ln">     9</span>		&#34;gopkg.in/mgo.v2/bson&#34;
+<span id="L10" class="ln">    10</span>	)
+<span id="L11" class="ln">    11</span>	
+<span id="L12" class="ln">    12</span>	<span class="comment">//InsertLogRecord InsertLogRecord</span>
+<span id="L13" class="ln">    13</span>	func InsertLogRecord(session mgo.Session, record domains.LogRecord) {
+<span id="L14" class="ln">    14</span>	
+<span id="L15" class="ln">    15</span>		session.SetMode(mgo.Monotonic, true)
+<span id="L16" class="ln">    16</span>	
+<span id="L17" class="ln">    17</span>		c := session.DB(&#34;log&#34;).C(&#34;logrecords&#34;)
+<span id="L18" class="ln">    18</span>	
+<span id="L19" class="ln">    19</span>		err := c.Insert(record)
+<span id="L20" class="ln">    20</span>	
+<span id="L21" class="ln">    21</span>		if err != nil {
+<span id="L22" class="ln">    22</span>			panic(err)
+<span id="L23" class="ln">    23</span>		}
+<span id="L24" class="ln">    24</span>	
+<span id="L25" class="ln">    25</span>	}
+<span id="L26" class="ln">    26</span>	
+<span id="L27" class="ln">    27</span>	<span class="comment">//GetAllForStatic coments</span>
+<span id="L28" class="ln">    28</span>	<span class="selection">func GetAllForStatic(session mgo.Session, site string) []domains.Articlefull</span> {
+<span id="L29" class="ln">    29</span>	
+<span id="L30" class="ln">    30</span>		session.SetMode(mgo.Monotonic, true)
+<span id="L31" class="ln">    31</span>	
+<span id="L32" class="ln">    32</span>		c := session.DB(&#34;blog&#34;).C(&#34;articles&#34;)
+<span id="L33" class="ln">    33</span>		var results []domains.Articlefull
+<span id="L34" class="ln">    34</span>		err := c.Find(bson.M{&#34;site&#34;: site}).Limit(100).All(&amp;results)
+<span id="L35" class="ln">    35</span>		if err != nil {
+<span id="L36" class="ln">    36</span>	
+<span id="L37" class="ln">    37</span>			log.Fatal(err)
+<span id="L38" class="ln">    38</span>		}
+<span id="L39" class="ln">    39</span>	
+<span id="L40" class="ln">    40</span>		return results
+<span id="L41" class="ln">    41</span>	
+<span id="L42" class="ln">    42</span>	}
+<span id="L43" class="ln">    43</span>	
+<span id="L44" class="ln">    44</span>	<span class="comment">//GetOneArticle</span>
+<span id="L45" class="ln">    45</span>	func GetOneArticle(session mgo.Session, stitle string) domains.Articlefull {
+<span id="L46" class="ln">    46</span>	
+<span id="L47" class="ln">    47</span>		session.SetMode(mgo.Monotonic, true)
+<span id="L48" class="ln">    48</span>	
+<span id="L49" class="ln">    49</span>		c := session.DB(&#34;blog&#34;).C(&#34;articles&#34;)
+<span id="L50" class="ln">    50</span>	
+<span id="L51" class="ln">    51</span>		var result domains.Articlefull
+<span id="L52" class="ln">    52</span>	
+<span id="L53" class="ln">    53</span>		err := c.Find(bson.M{&#34;stitle&#34;: stitle}).Select(nil).One(&amp;result)
+<span id="L54" class="ln">    54</span>		if err != nil {
+<span id="L55" class="ln">    55</span>	
+<span id="L56" class="ln">    56</span>			log.Fatal(err)
+<span id="L57" class="ln">    57</span>			<span class="comment">//		return</span>
+<span id="L58" class="ln">    58</span>		}
+<span id="L59" class="ln">    59</span>	
+<span id="L60" class="ln">    60</span>		return result
+<span id="L61" class="ln">    61</span>	
+<span id="L62" class="ln">    62</span>	}
+<span id="L63" class="ln">    63</span>	
+<span id="L64" class="ln">    64</span>	func GetAllSitemaplinks(session mgo.Session, site string) []domains.Sitemap_from_db {
+<span id="L65" class="ln">    65</span>	
+<span id="L66" class="ln">    66</span>		session.SetMode(mgo.Monotonic, true)
+<span id="L67" class="ln">    67</span>	
+<span id="L68" class="ln">    68</span>		c := session.DB(&#34;blog&#34;).C(&#34;articles&#34;)
+<span id="L69" class="ln">    69</span>		var results []domains.Sitemap_from_db
+<span id="L70" class="ln">    70</span>		err := c.Find(bson.M{&#34;site&#34;: site}).Select(bson.M{&#34;stitle&#34;: 1, &#34;site&#34;: 1, &#34;updated&#34;: 1}).All(&amp;results)
+<span id="L71" class="ln">    71</span>		if err != nil {
+<span id="L72" class="ln">    72</span>	
+<span id="L73" class="ln">    73</span>			log.Fatal(err)
+<span id="L74" class="ln">    74</span>		}
+<span id="L75" class="ln">    75</span>	
+<span id="L76" class="ln">    76</span>		return results
+<span id="L77" class="ln">    77</span>	}
+<span id="L78" class="ln">    78</span>	
+<span id="L79" class="ln">    79</span>	func GetAllUseful(session mgo.Session, themes string, locale string) []domains.Gphrase {
+<span id="L80" class="ln">    80</span>	
+<span id="L81" class="ln">    81</span>		session.SetMode(mgo.Monotonic, true)
+<span id="L82" class="ln">    82</span>	
+<span id="L83" class="ln">    83</span>		c := session.DB(&#34;gkeywords&#34;).C(&#34;keywords&#34;)
+<span id="L84" class="ln">    84</span>	
+<span id="L85" class="ln">    85</span>		var results []domains.Gphrase
+<span id="L86" class="ln">    86</span>	
+<span id="L87" class="ln">    87</span>		err := c.Find(bson.M{&#34;Themes&#34;: themes, &#34;Locale&#34;: locale}).Select(bson.M{&#34;Phrase&#34;: 1, &#34;Rating&#34;: 1}).All(&amp;results)
+<span id="L88" class="ln">    88</span>		if err != nil {
+<span id="L89" class="ln">    89</span>	
+<span id="L90" class="ln">    90</span>			log.Fatal(err)
+<span id="L91" class="ln">    91</span>		}
+<span id="L92" class="ln">    92</span>	
+<span id="L93" class="ln">    93</span>		return results
+<span id="L94" class="ln">    94</span>	}
+<span id="L95" class="ln">    95</span>	
+</pre><p><a href="/src/github.com/remotejob/kaukotyoeu/dbhandler/dbhandler.go?m=text">View as plain text</a></p>
+
+<div id="footer">
+Build version go1.7.1.<br>
+Except as <a href="https://developers.google.com/site-policies#restrictions">noted</a>,
+the content of this page is licensed under the
+Creative Commons Attribution 3.0 License,
+and code is licensed under a <a href="/LICENSE">BSD license</a>.<br>
+<a href="/doc/tos.html">Terms of Service</a> | 
+<a href="http://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+
+<!-- TODO(adonovan): load these from <head> using "defer" attribute? -->
+<script type="text/javascript" src="/lib/godoc/jquery.js"></script>
+<script type="text/javascript" src="/lib/godoc/jquery.treeview.js"></script>
+<script type="text/javascript" src="/lib/godoc/jquery.treeview.edit.js"></script>
+
+
+<script>var goVersion = "go1.7.1";</script>
+<script type="text/javascript" src="/lib/godoc/godocs.js"></script>
+
+</body>
+</html>
+

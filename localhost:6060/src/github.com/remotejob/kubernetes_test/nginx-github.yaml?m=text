@@ -1,0 +1,29 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: my-nginx2
+spec:
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      volumes:
+      - name: www-data
+        emptyDir: {}
+      containers:
+      - name: nginx
+        image: nginx
+        # This container reads from the www-data volume
+        volumeMounts:
+        - mountPath: /usr/share/nginx/html
+          name: www-data
+      - name: git-sync
+        image: gcr.io/jntlserv0/git-sync:0.0
+#        env:
+#        - name: GIT_REPO
+#          value: https://github.com/remotejob/www-data.git
+        # This container writes to the www-data volume
+        volumeMounts:
+        - mountPath: /usr/share/nginx/html
+          name: www-data
