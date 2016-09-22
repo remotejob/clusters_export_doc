@@ -1,4 +1,0 @@
-
-
-
-docker tag myapp gcr.io/<YOUR-PROJECT-ID>/myapp

@@ -1,5 +1,0 @@
-
-
-docker build --tag gcr.io/jntlserv0/mymongodb:v1 .
- 
-gcloud docker push gcr.io/jntlserv0/mymongodb:v1

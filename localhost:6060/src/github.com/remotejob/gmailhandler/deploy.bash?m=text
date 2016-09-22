@@ -1,7 +1,0 @@
-#! /bin/bash
-
-GOBIN=$PWD/bin go install server/server.go
-
-
-#tar zcf -  --exclude '*.test' bin/ templates/ assets/ config.gcfg.example commonwords.csv useful.bash |ssh juno@104.131.38.162 tar zxf - -C jbs_generator
-tar zcfv -   bin/   config.gcfg.example |ssh juno@104.131.38.162 tar zxf - -C /home/juno/git/github.com/remotejob/gmailhandler
